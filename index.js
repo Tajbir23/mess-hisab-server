@@ -7,8 +7,9 @@ const port = process.env.PORT || 3000
 const dbConnection = require("./config/db")
 
 app.use(cors({
-    origin: ["http://localhost:5173", "https://mess-hisab-salek-pump.web.app"]
-}))
+    origin: ["http://localhost:5173", "https://mess-hisab-salek-pump.web.app", "https://mess-hisab-server.vercel.app"]
+}));
+
 
 app.use(express.json())
 
