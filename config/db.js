@@ -12,4 +12,4 @@ const dbConnection = async() => {
     }
 }
 
-module.export = dbConnection
+module.exports = dbConnection

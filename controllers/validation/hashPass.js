@@ -9,4 +9,4 @@ const hashPass = async(password) => {
     }
 }
 
-module.export = hashPass
+module.exports = hashPass

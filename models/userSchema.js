@@ -7,11 +7,18 @@ const userSchema = new Schema({
     },
     phone: {
         type: Number,
-        required: true
+        required: [true, "Please enter your phone number"],
+        unique: true,
+        validate: {
+            validator: function (v) {
+                return /^(?:\+880|880)?1[3-9]\d{8}$/.test(v); 
+            },
+            message: "Please enter a valid phone number"
+        }
     },
     password: {
         type: String,
-        required: true
+        required: [true, "Please enter your password"]
     },
     todayBreakfast: {
         type: Boolean,
@@ -24,11 +31,17 @@ const userSchema = new Schema({
     todayExtraCost: {
         type: Boolean,
         default: false
+    },
+    status: {
+        type: String,
+        default: "pending"
     }
 },
     {
         timestamps: true
     })
+
+userSchema.index({ phone: 1 }, { unique: true })
 
 const userModel = model('users', userSchema)
 

@@ -3,6 +3,7 @@ const generateJwt = require("../validation/generateJwt")
 const hashPass = require("./../validation/hashPass")
 const signUp = async(req, res) => {
     const {name, phone, password} = req.body
+    console.log(req.body)
     try {
         const hashedPassword = await hashPass(password)
         const newUser = new userModel({name: name, phone: phone, password: hashedPassword, role: 'user', status: 'pending'})
@@ -11,7 +12,10 @@ const signUp = async(req, res) => {
         res.status(200).send({message: "User registered successfully", token: token})
     } catch (error) {
         console.error("Error registration", error)
-        res.status(500).send({message: "Error registering user"})
+        if(error.code === 11000){
+            return res.status(400).send({message: "User already exists"})
+        }
+        res.status(500).send({message: error.message})
     }
 }
 
