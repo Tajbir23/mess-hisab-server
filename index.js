@@ -10,8 +10,8 @@ app.use(cors())
 
 app.use(express.json())
 
-app.get((req, res) => {
-    res.json({ message: "Welcome to the REST API!" })
+app.get("/", (req, res) => {
+    res.send("Hello World")
 })
 
 dbConnection()
