@@ -6,7 +6,9 @@ const app = express()
 const port = process.env.PORT || 3000
 const dbConnection = require("./config/db")
 
-app.use(cors())
+app.use(cors({
+    origin: ["http://localhost:5173", "https://mess-hisab-salek-pump.web.app"]
+}))
 
 app.use(express.json())
 
