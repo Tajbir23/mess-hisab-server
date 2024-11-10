@@ -45,7 +45,7 @@ const userSchema = new Schema({
         timestamps: true
     })
 
-userSchema.index({ phone: 1 }, { unique: true })
+// userSchema.index({ phone: 1 }, { unique: true })
 
 const userModel = model('users', userSchema)
 
