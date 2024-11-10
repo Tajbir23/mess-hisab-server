@@ -35,6 +35,10 @@ const userSchema = new Schema({
     status: {
         type: String,
         default: "pending"
+    },
+    role: {
+        type: String,
+        default: "user"
     }
 },
     {
