@@ -15,7 +15,7 @@ const login = async(req, res) => {
         }
         const verify = await verifyPass(password, user.password)
 
-        const token = await generateJwt(user._id, user.phone)
+        const token = await generateJwt(user._id, user.phone, user.role)
 
         if(user && verify){
             return res.status(200).send({message: "Login successful", token})

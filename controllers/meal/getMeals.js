@@ -1,7 +1,7 @@
 const mealModel = require("../../models/mealSchema");
 
 const getMeals = async (req, res) => {
-    const { fromDate, toDate } = req.body;
+    const { fromDate, toDate } = req.query;
     
     let query = {};
 

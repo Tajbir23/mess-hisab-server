@@ -20,6 +20,14 @@ const userSchema = new Schema({
         type: String,
         required: [true, "Please enter your password"]
     },
+    rice: {
+        type: Number,
+        default: 0
+    },
+    mealBalance: {
+        type: Number,
+        default: 0
+    },
     todayBreakfast: {
         type: Boolean,
         default: false

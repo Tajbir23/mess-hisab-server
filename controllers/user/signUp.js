@@ -8,7 +8,7 @@ const signUp = async(req, res) => {
         const hashedPassword = await hashPass(password)
         const newUser = new userModel({name: name, phone: phone, password: hashedPassword, role: 'user', status: 'pending'})
         await newUser.save()
-        const token = await generateJwt(newUser._id, newUser.phone)
+        const token = await generateJwt(newUser._id, newUser.phone, newUser.role)
         res.status(200).send({message: "User registered successfully", token: token})
     } catch (error) {
         console.error("Error registration", error)
