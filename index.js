@@ -5,6 +5,7 @@ const userRouter = require("./routes/user/userHandler")
 const app = express()
 const port = process.env.PORT || 3000
 const dbConnection = require("./config/db")
+const mealRouter = require("./routes/meal/mealHandler")
 
 app.use(cors({
     origin: ["http://localhost:5173", "https://mess-hisab-salek-pump.web.app", "https://mess-hisab-server.vercel.app"]
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 dbConnection()
 
 app.use("/api/user", userRouter)
+app.use("/api/meal", mealRouter)
 
 app.listen(port,() => {
     console.log(`Server running on port http://localhost:${port}`)
