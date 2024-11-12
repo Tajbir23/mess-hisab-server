@@ -5,7 +5,7 @@ const getMeals = async (req, res) => {
     
     let query = {};
 
-    if (fromDate && toDate) {
+    if (fromDate || toDate) {
         query.date = { $gte: fromDate, $lte: toDate };
     } else {
         const dateTenDaysAgo = new Date();

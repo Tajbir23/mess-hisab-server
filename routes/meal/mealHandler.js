@@ -5,5 +5,5 @@ const getMeals = require('../../controllers/meal/getMeals')
 const mealRouter = express.Router()
 
 mealRouter.post('/add_meal', verifyJwt, postMeal)
-mealRouter.get("/meals", getMeals)
+mealRouter.get("/meals",verifyJwt, getMeals)
 module.exports = mealRouter
